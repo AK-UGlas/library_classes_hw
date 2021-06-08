@@ -11,7 +11,21 @@ public class Borrower {
         this.privateCollection = new ArrayList<>();
     }
 
-    public void borrow(Book book, Library lib) {
-        if
+    public void borrowBook(Book book, Library lib) {
+        if (canBorrow() && lib.loanBook(book)) {
+           this.privateCollection.add(book);
+        }
+    }
+
+    public void returnBook() {
+
+    }
+
+    public boolean canBorrow() {
+        return this.privateCollection.size() < bookLimit;
+    }
+
+    public int collectionCount() {
+        return this.privateCollection.size();
     }
 }

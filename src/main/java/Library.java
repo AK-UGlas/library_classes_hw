@@ -9,12 +9,13 @@ public class Library {
         this.capacity = capacity;
     }
 
-    public String addBook(Book book) {
+    public void addBook(Book book) {
+        String msg = "Not enough space in library";
         if (canAddBook()) {
             this.books.add(book);
-            return "Book added to library successfully";
+            msg = book.getTitle() + " added to library successfully";
         }
-        return "Not enough space in library";
+        System.out.println(msg);
     }
 
     public int bookCount() {
@@ -26,7 +27,7 @@ public class Library {
     }
 
     // remove book from collection
-    public void loanBook(Book book) {
-        
+    public boolean loanBook(Book book) {
+        return this.books.remove(book);
     }
 }
