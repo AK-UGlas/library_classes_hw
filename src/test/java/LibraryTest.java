@@ -19,4 +19,10 @@ public class LibraryTest {
         lib.addBook(book);
         assertEquals(1, lib.bookCount());
     }
+
+    @Test
+    public void canCountBooksByGenre() {
+        lib.addBook(book);
+        assertEquals(1, lib.getGenreCount("non-fiction"));
+    }
 }

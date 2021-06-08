@@ -27,6 +27,9 @@ public class BorrowerTest {
 
     @Test
     public void canReturnBook() {
-
+        borrower.borrowBook(book, lib);
+        borrower.returnBook(book, lib);
+        assertEquals(0, borrower.collectionCount());
+        assertEquals(1, lib.bookCount());
     }
 }

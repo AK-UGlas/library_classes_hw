@@ -17,8 +17,10 @@ public class Borrower {
         }
     }
 
-    public void returnBook() {
-
+    public void returnBook(Book book, Library library) {
+        if (this.privateCollection.remove(book)) {
+            library.addBook(book);
+        }
     }
 
     public boolean canBorrow() {
